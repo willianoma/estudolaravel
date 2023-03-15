@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\agenda;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Agenda;
+use App\Http\Resources\AgendaResource;
+
 
 class AgendaController extends Controller
 {
@@ -14,17 +17,7 @@ class AgendaController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return new AgendaResource(Agenda::all());
     }
 
     /**
@@ -41,33 +34,23 @@ class AgendaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\agenda  $agenda
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(agenda $agenda)
+    public function show($id)
     {
-        //
-    }
+        return new AgendaResource(Agenda::findOrFail($id));
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\agenda  $agenda
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(agenda $agenda)
-    {
-        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\agenda  $agenda
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, agenda $agenda)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +58,10 @@ class AgendaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\agenda  $agenda
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(agenda $agenda)
+    public function destroy($id)
     {
         //
     }
