@@ -16,7 +16,10 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
-
 .env*
 composer.json
 /docker
+/public/.htaccess
+.htaccess
+/public/error_log
+composer.lock
